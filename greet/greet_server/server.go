@@ -9,7 +9,9 @@ import (
 	"google.golang.org/grpc"
 )
 
-var server greetpb.UnimplementedGreetServiceServer
+var server struct {
+	greetpb.UnimplementedGreetServiceServer
+}
 
 func main() {
 	fmt.Println("Hellow world")
@@ -20,7 +22,7 @@ func main() {
 	}
 
 	s := grpc.NewServer()
-	greetpb.RegisterGreetServiceServer(s, server)
+	greetpb.RegisterGreetServiceServer(s, &server)
 
 	if err := s.Serve(lis); err != nil {
 		log.Fatalf("Failed to server: %v", err)
