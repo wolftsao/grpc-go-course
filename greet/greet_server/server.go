@@ -9,7 +9,7 @@ import (
 	"google.golang.org/grpc"
 )
 
-var server greetpb.GreetServiceServer
+var server greetpb.UnimplementedGreetServiceServer
 
 func main() {
 	fmt.Println("Hellow world")
