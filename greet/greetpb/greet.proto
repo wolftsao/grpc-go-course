@@ -41,9 +41,18 @@ message GreetEveryoneResponse {
   string result = 1;
 }
 
+message GreetWithDeadlineRequest {
+  Greeting greeting = 1;
+}
+
+message GreetWithDeadlineResponse {
+  string result = 1;
+}
+
 service GreetService{
   rpc Greet(GreetRequest) returns (GreetResponse) {};
   rpc GreetManyTimes(GreetManyTimesRequest) returns (stream GreetManyTimesResponse) {};
   rpc LongGreet(stream LongGreetRequest) returns (LongGreetResponse) {};
   rpc GreetEveryone(stream GreetEveryoneRequest) returns (stream GreetEveryoneResponse) {};
+  rpc GreetWithDeadline(GreetWithDeadlineRequest) returns (GreetWithDeadlineResponse) {};
 }
