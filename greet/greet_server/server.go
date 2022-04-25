@@ -121,11 +121,11 @@ func main() {
 		log.Fatalf("Failed to listen: %v", err)
 	}
 
-	tls := false
+	tls := true
 	opts := []grpc.ServerOption{}
 	if tls {
-		certFile := "ssl/server.crt"
-		keyFile := "ssl/server.pem"
+		certFile := "ssl/cert.pem"
+		keyFile := "ssl/key.pem"
 		creds, err := credentials.NewServerTLSFromFile(certFile, keyFile)
 		if err != nil {
 			log.Fatalf("Failed loading certificates: %v", err)

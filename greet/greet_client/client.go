@@ -19,10 +19,10 @@ func main() {
 	fmt.Println("Hello I'm a client")
 
 	var err error
-	tls := false
+	tls := true
 	var creds credentials.TransportCredentials
 	if tls {
-		certFile := "ssl/ca.crt"
+		certFile := "ssl/cert.pem"
 		creds, err = credentials.NewClientTLSFromFile(certFile, "")
 		if err != nil {
 			log.Fatalf("Error while loading CA trust certificate: %v", err)
